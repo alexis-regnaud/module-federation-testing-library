@@ -6,12 +6,14 @@
   "scripts": {
     "build": "webpack --config federated-test/webpack.test.config.js && webpack --config federated-cross-test/webpack.test.config.js",
     "webpack:test": "yarn build && webpack --config test/webpack.test.config.js",
-    "jest": "jest test/bundle.test.js -u",
+    "jest": "jest test/bundle.test.js -u --config jest.config.js",
     "test": "yarn webpack:test && yarn jest",
     "build:demo": "cd federated-test && webpack --config ./webpack.build.config",
     "serve": "webpack --config federated-cross-test/webpack.build.config.js && webpack --config federated-test/webpack.build.config.js && concurrently \"PORT=3000 serve ./federated-cross-test/dist\" \"PORT=3001 serve ./federated-test/dist\" "
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "jest": "^26.6.3",
     "react": "16.14.0",
     "react-dom": "16.14.0",
@@ -22,7 +24,11 @@
   "dependencies": {
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "12.1.5",
+    "@testing-library/user-event": "^13.5.0",
     "@webpack-cli/serve": "^1.3.1",
+    "babel-jest": "^29.4.3",
     "babel-loader": "^8.2.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",

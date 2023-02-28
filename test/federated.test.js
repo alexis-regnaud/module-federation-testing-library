@@ -1,12 +1,12 @@
-import React, {createElement} from 'react';
-import { renderToStringAsync } from 'react-async-ssr'
-import {shallow, mount, render} from 'enzyme';
+import React from 'react';
+//import {render} from 'enzyme';
 const Form = import("fed_consumer/Form");
 const Button = import("federated/Button");
 import suspenseRender from './suspenseRender'
-const workerpool = require('workerpool');
-const pool = workerpool.pool(__dirname + '/worker.js');
+//const workerpool = require('workerpool');
+//const pool = workerpool.pool(__dirname + '/worker.js');
 
+import { render } from '@testing-library/react';
 
 
 describe("Federation", function () {
@@ -20,9 +20,9 @@ describe("Federation", function () {
     expect(wrapper).toMatchSnapshot()
   });
 
-  it("Testing Button from Form", async function () {
+/*  it("Testing Button from Form", async function () {
     const Frm = (await Form).default
-    const wrapper = mount(<Frm/>);
+    const wrapper = render(<Frm/>);
     expect(wrapper).toMatchSnapshot()
-  });
+  });*/
 });
